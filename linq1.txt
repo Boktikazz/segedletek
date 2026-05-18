@@ -1,0 +1,21 @@
+    // 1. Feladat: Listázzuk ki a 30 év feletti embereket!
+        var harmincFelettiek = emberek.Where(e => e.Kor > 30);
+        Console.WriteLine("30 év felettiek:");
+        foreach (var e in harmincFelettiek) Console.WriteLine(e.Név);
+
+        // 2. Feladat: A legfiatalabb személy neve
+        var legfiatalabb = emberek.OrderBy(e => e.Kor).First();
+        Console.WriteLine($"A legfiatalabb: {legfiatalabb.Név}");
+
+        // 3. Feladat: Átlagéletkor kiszámítása
+        double atlagEletkor = emberek.Average(e => e.Kor);
+        Console.WriteLine($"Átlagéletkor: {atlagEletkor:F2}");
+
+        // 4. Feladat: Van-e 18 év alatti a listában?
+        bool vanFiatal = emberek.Any(e => e.Kor < 18);
+        Console.WriteLine($"Van-e 18 év alatti? {(vanFiatal ? "Igen" : "Nem")}");
+
+        // 5. Feladat: A nevek ábécé sorrendben
+        var rendezettNevek = emberek.OrderBy(e => e.Név).Select(e => e.Név);
+        Console.WriteLine("Nevek ábécé sorrendben:");
+        Console.WriteLine(string.Join(", ", rendezettNevek));
